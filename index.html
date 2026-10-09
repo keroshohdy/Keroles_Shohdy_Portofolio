@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keroles Shohdy | Data Analyst</title>
+  <meta name="description" content="Portfolio of Keroles Shohdy, Data Analyst turning data into meaningful business insights.">
+  <script>
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            bgPrimary: 'rgb(var(--bg-primary) / <alpha-value>)',
+            bgSecondary: 'rgb(var(--bg-secondary) / <alpha-value>)',
+            textPrimary: 'rgb(var(--text-primary) / <alpha-value>)',
+            textSecondary: 'rgb(var(--text-secondary) / <alpha-value>)',
+            accent: 'rgb(var(--accent) / <alpha-value>)',
+            accentHover: 'rgb(var(--accent-hover) / <alpha-value>)',
+            borderLight: 'rgb(var(--border-light) / <alpha-value>)'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Lucide icons CDN -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-bgPrimary text-textPrimary font-sans antialiased">
+
+  <!-- Navbar -->
+  <nav class="fixed w-full z-50 top-0 transition-all duration-300 border-b border-transparent backdrop-blur-md bg-bgPrimary/80" id="navbar">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="text-xl font-bold tracking-tight text-textPrimary hover:text-accent transition-colors">KS.</a>
+      <div class="hidden md:flex gap-8 text-sm font-medium text-textSecondary">
+        <a href="#about" class="hover:text-textPrimary transition-colors">About</a>
+        <a href="#skills" class="hover:text-textPrimary transition-colors">Skills</a>
+        <a href="#projects" class="hover:text-textPrimary transition-colors">Projects</a>
+        <a href="#experience" class="hover:text-textPrimary transition-colors">Experience</a>
+        <a href="#contact" class="hover:text-textPrimary transition-colors">Contact</a>
+      </div>
+      <div class="hidden md:flex items-center gap-4">
+        <button id="theme-toggle" class="text-textSecondary hover:text-textPrimary transition-colors" aria-label="Toggle theme">
+          <i data-lucide="sun"></i>
+        </button>
+        <a href="#contact" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium border border-borderLight rounded-md hover:border-accent hover:text-accent transition-all">
+          Let's Talk
+        </a>
+      </div>
+      <!-- Mobile menu button & Theme toggle -->
+      <div class="md:hidden flex items-center gap-4">
+        <button id="theme-toggle-mobile" class="text-textSecondary hover:text-textPrimary transition-colors" aria-label="Toggle theme">
+          <i data-lucide="sun"></i>
+        </button>
+        <button class="text-textSecondary hover:text-textPrimary" id="mobile-menu-btn">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden bg-bgSecondary border-b border-borderLight px-6 py-4 space-y-4" id="mobile-menu">
+      <a href="#about" class="block text-textSecondary hover:text-textPrimary">About</a>
+      <a href="#skills" class="block text-textSecondary hover:text-textPrimary">Skills</a>
+      <a href="#projects" class="block text-textSecondary hover:text-textPrimary">Projects</a>
+      <a href="#experience" class="block text-textSecondary hover:text-textPrimary">Experience</a>
+      <a href="#contact" class="block text-textSecondary hover:text-textPrimary">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden" id="home">
+    <div class="absolute inset-0 z-0 opacity-20 pointer-events-none" id="hero-pattern"></div>
+    <div class="max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center z-10">
+      <div>
+        <p class="text-accent font-medium tracking-wide text-sm mb-3 uppercase">Keroles Shohdy &bull; Data Analyst</p>
+        <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6 text-textPrimary">
+          Turning Data Into <br /> <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">Meaningful Business Insights.</span>
+        </h1>
+        <p class="text-lg text-textSecondary mb-8 max-w-lg leading-relaxed">
+          I analyze, clean, and visualize data to uncover patterns, understand business performance, and support better decisions.
+        </p>
+        <div class="flex flex-wrap gap-4 items-center">
+          <a href="#projects" class="inline-flex items-center justify-center px-6 py-3 bg-accent text-white font-medium rounded-md hover:bg-accentHover transition-colors">
+            Explore My Projects
+          </a>
+          <a href="#contact" class="inline-flex items-center justify-center px-6 py-3 border border-borderLight text-textPrimary font-medium rounded-md hover:bg-bgSecondary transition-colors">
+            Contact Me
+          </a>
+        </div>
+        <div class="flex gap-4 mt-10">
+          <a href="https://github.com/keroshohdy" target="_blank" class="text-textSecondary hover:text-textPrimary transition-colors">
+            <i data-lucide="github" class="w-5 h-5"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/keroles-shohdy" target="_blank" class="text-textSecondary hover:text-textPrimary transition-colors">
+            <i data-lucide="linkedin" class="w-5 h-5"></i>
+          </a>
+        </div>
+      </div>
+      <div class="hidden md:flex justify-end items-center relative h-96">
+        <!-- Personal Photo -->
+        <div class="relative w-full h-full max-w-sm rounded-2xl border border-borderLight bg-bgSecondary/50 flex items-center justify-center overflow-hidden shadow-xl group">
+           <div class="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none"></div>
+           <img src="personal image.jpeg" alt="Keroles Shohdy — Data Analyst" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block" class="transition-transform duration-700 group-hover:scale-105">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="py-24 px-6 bg-bgSecondary/30 border-t border-borderLight" id="about">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex items-center gap-4 mb-12">
+        <h2 class="text-3xl font-bold">About Me</h2>
+        <div class="h-px bg-borderLight flex-1"></div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-12 items-center">
+        <div class="md:col-span-1 flex justify-center">
+          <!-- Container with explicit height so img never collapses to 0px -->
+          <div style="width:100%;max-width:280px;height:340px;border-radius:1rem;overflow:hidden;border:2px solid rgb(var(--border-light));background:rgb(var(--bg-secondary));flex-shrink:0;">
+            <img src="personal image.jpeg"
+                 alt="Keroles Shohdy — Data Analyst"
+                 style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"
+                 onerror="this.onerror=null;this.src='personal%20image.jpeg'">
+          </div>
+        </div>
+        <div class="md:col-span-2 text-lg text-textSecondary leading-relaxed space-y-6">
+          <p>
+            I am a Data Analyst passionate about transforming raw data into clear, actionable business insights. I specialize in working with Python, SQL, Excel, and data visualization tools to prepare data, explore datasets, identify trends, and communicate findings effectively.
+          </p>
+          <p>
+            My approach is rooted in analytical thinking, meticulous attention to detail, and a strong understanding of business needs. I focus on practical problem-solving—whether it's cleaning complex datasets, exploring variables to find meaning, or building visualizations that tell a compelling story.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="py-24 px-6" id="skills">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex items-center gap-4 mb-12">
+        <h2 class="text-3xl font-bold">Skills & Tools</h2>
+        <div class="h-px bg-borderLight flex-1"></div>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Category 1 -->
+        <div class="p-6 border border-borderLight rounded-lg bg-bgSecondary/30 hover:border-accent/50 transition-colors">
+          <div class="w-10 h-10 rounded bg-accent/10 flex items-center justify-center text-accent mb-4">
+            <i data-lucide="code-2"></i>
+          </div>
+          <h3 class="text-lg font-semibold mb-4 text-textPrimary">Programming & Analysis</h3>
+          <ul class="space-y-2 text-textSecondary">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent"></i> Python</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent"></i> Pandas</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent"></i> NumPy</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent"></i> SQL</li>
+          </ul>
+        </div>
+        <!-- Category 2 -->
+        <div class="p-6 border border-borderLight rounded-lg bg-bgSecondary/30 hover:border-accent/50 transition-colors">
+          <div class="w-10 h-10 rounded bg-accent/10 flex items-center justify-center text-accent mb-4">
+            <i data-lucide="database"></i>
+          </div>
+          <h3 class="text-lg font-semibold mb-4 text-textPrimary">Data Preparation</h3>
+          <ul class="space-y-2 text-textSecondary">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent"></i> Data Cleaning</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent"></i> Missing-Value Handling</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent"></i> Data Transformation</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent"></i> Feature Engineering</li>
+          </ul>
+        </div>
+        <!-- Category 3 -->
+        <div class="p-6 border border-borderLight rounded-lg bg-bgSecondary/30 hover:border-accent/50 transition-colors">
+          <div class="w-10 h-10 rounded bg-accent/10 flex items-center justify-center text-accent mb-4">
+            <i data-lucide="line-chart"></i>
+          </div>
+          <h3 class="text-lg font-semibold mb-4 text-textPrimary">Analytics</h3>
+          <ul class="space-y-2 text-textSecondary">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent"></i> Exploratory Data Analysis</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent"></i> Descriptive Statistics</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent"></i> Trend & Pattern Analysis</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent"></i> Business Insights</li>
+          </ul>
+        </div>
+        <!-- Category 4 -->
+        <div class="p-6 border border-borderLight rounded-lg bg-bgSecondary/30 hover:border-accent/50 transition-colors">
+          <div class="w-10 h-10 rounded bg-accent/10 flex items-center justify-center text-accent mb-4">
+            <i data-lucide="bar-chart-2"></i>
+          </div>
+          <h3 class="text-lg font-semibold mb-4 text-textPrimary">Visualization & Tools</h3>
+          <ul class="space-y-2 text-textSecondary">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent"></i> Matplotlib & Seaborn</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent"></i> Excel Charts & Reporting</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent"></i> Jupyter & Google Colab</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent"></i> Git & GitHub</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="py-24 px-6 bg-bgSecondary/30 border-y border-borderLight" id="projects">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+        <div>
+          <h2 class="text-3xl font-bold mb-2">Projects</h2>
+          <p class="text-textSecondary">Analytical work, explorations, and business insights.</p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Project 1 -->
+        <div class="group border border-borderLight bg-bgPrimary p-6 flex flex-col h-full hover:border-accent/50 transition-colors cursor-pointer" onclick="openModal('modal-p1')">
+          <div class="mb-4 flex items-center justify-between">
+             <span class="text-xs font-semibold text-green-400 bg-green-400/10 px-2 py-1 rounded">Practice Project</span>
+             <i data-lucide="arrow-up-right" class="w-5 h-5 text-textSecondary group-hover:text-accent transition-colors"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Titanic Survival Analysis</h3>
+          <p class="text-textSecondary text-sm mb-6 flex-1">Data exploration and cleaning to uncover survival patterns by class, age, and family size.</p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="text-xs border border-borderLight text-textSecondary px-2 py-1 rounded">Python</span>
+            <span class="text-xs border border-borderLight text-textSecondary px-2 py-1 rounded">Pandas</span>
+            <span class="text-xs border border-borderLight text-textSecondary px-2 py-1 rounded">EDA</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="group border border-borderLight bg-bgPrimary p-6 flex flex-col h-full hover:border-accent/50 transition-colors cursor-pointer" onclick="openModal('modal-p2')">
+          <div class="mb-4 flex items-center justify-between">
+             <span class="text-xs font-semibold text-green-400 bg-green-400/10 px-2 py-1 rounded">Practice Project</span>
+             <i data-lucide="arrow-up-right" class="w-5 h-5 text-textSecondary group-hover:text-accent transition-colors"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">E-commerce Stockout Analysis</h3>
+          <p class="text-textSecondary text-sm mb-6 flex-1">Analyzing ASOS product data to estimate potential lost revenue based on stockout rates and pricing.</p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="text-xs border border-borderLight text-textSecondary px-2 py-1 rounded">Python</span>
+            <span class="text-xs border border-borderLight text-textSecondary px-2 py-1 rounded">Groupby Analysis</span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="group border border-borderLight bg-bgPrimary p-6 flex flex-col h-full hover:border-accent/50 transition-colors cursor-pointer" onclick="openModal('modal-p3')">
+          <div class="mb-4 flex items-center justify-between">
+             <span class="text-xs font-semibold text-green-400 bg-green-400/10 px-2 py-1 rounded">SQL Practice</span>
+             <i data-lucide="arrow-up-right" class="w-5 h-5 text-textSecondary group-hover:text-accent transition-colors"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Banking Database Analysis</h3>
+          <p class="text-textSecondary text-sm mb-6 flex-1">Writing complex business-oriented queries involving CTEs, joins, and window functions.</p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="text-xs border border-borderLight text-textSecondary px-2 py-1 rounded">SQL</span>
+            <span class="text-xs border border-borderLight text-textSecondary px-2 py-1 rounded">SQLite</span>
+            <span class="text-xs border border-borderLight text-textSecondary px-2 py-1 rounded">Window Functions</span>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="group border border-borderLight bg-bgPrimary p-6 flex flex-col h-full hover:border-accent/50 transition-colors cursor-pointer" onclick="openModal('modal-p4')">
+          <div class="mb-4 flex items-center justify-between">
+             <span class="text-xs font-semibold text-yellow-400 bg-yellow-400/10 px-2 py-1 rounded">In Progress / Planned</span>
+             <i data-lucide="arrow-up-right" class="w-5 h-5 text-textSecondary group-hover:text-accent transition-colors"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Accident Data & Hospital Recs</h3>
+          <p class="text-textSecondary text-sm mb-6 flex-1">Exploring road accident severity and patient needs to inform potential hospital recommendations.</p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="text-xs border border-borderLight text-textSecondary px-2 py-1 rounded">Python</span>
+            <span class="text-xs border border-borderLight text-textSecondary px-2 py-1 rounded">Pandas</span>
+            <span class="text-xs border border-borderLight text-textSecondary px-2 py-1 rounded">Geospatial</span>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="group border border-borderLight bg-bgPrimary p-6 flex flex-col h-full hover:border-accent/50 transition-colors cursor-pointer" onclick="openModal('modal-p5')">
+          <div class="mb-4 flex items-center justify-between">
+             <span class="text-xs font-semibold text-purple-400 bg-purple-400/10 px-2 py-1 rounded">Research Idea</span>
+             <i data-lucide="arrow-up-right" class="w-5 h-5 text-textSecondary group-hover:text-accent transition-colors"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Food Waste & Financial Loss</h3>
+          <p class="text-textSecondary text-sm mb-6 flex-1">Investigating how data analysis could help businesses understand food waste and potential financial impact.</p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="text-xs border border-borderLight text-textSecondary px-2 py-1 rounded">Data Analysis</span>
+            <span class="text-xs border border-borderLight text-textSecondary px-2 py-1 rounded">Business Research</span>
+          </div>
+        </div>
+
+      </div>
+
+
+
+    </div>
+  </section>
+
+  <!-- Experience & Education -->
+  <section class="py-24 px-6" id="experience">
+    <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-16">
+      
+      <!-- Experience -->
+      <div>
+        <h2 class="text-2xl font-bold mb-8 flex items-center gap-3">
+          <i data-lucide="briefcase" class="text-accent"></i> Professional Experience
+        </h2>
+        <div class="space-y-8 relative before:absolute before:inset-0 before:ml-2 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-borderLight before:to-transparent">
+          
+          <!-- Job 1 -->
+          <div class="relative pl-8">
+            <div class="absolute left-0 w-4 h-4 rounded-full border-2 border-accent bg-bgPrimary mt-1.5 -ml-1.5"></div>
+            <h3 class="text-lg font-semibold text-textPrimary">HR Recruiter / Junior Recruiter</h3>
+            <p class="text-sm text-textSecondary mb-2">Approx. 6 Months</p>
+            <p class="text-sm text-textSecondary leading-relaxed">
+              Developed strong communication and organizational skills. Learned to understand core business needs, evaluate candidates methodically, and manage data with high attention to detail.
+            </p>
+          </div>
+
+          <!-- Job 2 -->
+          <div class="relative pl-8">
+            <div class="absolute left-0 w-4 h-4 rounded-full border-2 border-borderLight bg-bgPrimary mt-1.5 -ml-1.5"></div>
+            <h3 class="text-lg font-semibold text-textPrimary">Cold Calling / Sales</h3>
+            <p class="text-sm text-textSecondary mb-2">Approx. 6 - 7 Months</p>
+            <p class="text-sm text-textSecondary leading-relaxed">
+              Gained practical experience in client communication, resilience, and addressing business pain points directly. Focused on understanding client requirements and delivering value propositions.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div>
+        <h2 class="text-2xl font-bold mb-8 flex items-center gap-3">
+          <i data-lucide="graduation-cap" class="text-accent"></i> Education
+        </h2>
+        <div class="relative pl-8 border-l border-borderLight ml-2">
+          <div class="absolute left-0 w-4 h-4 rounded-full border-2 border-accent bg-bgPrimary top-0 mt-1.5 -ml-2"></div>
+          <h3 class="text-lg font-semibold text-textPrimary mb-1">Badr University in Assiut</h3>
+          <p class="text-accent mb-3 font-medium">Faculty of Artificial Intelligence & Data Management</p>
+          <div class="space-y-2">
+            <p class="text-sm text-textSecondary"><span class="font-medium text-textPrimary">Specialization:</span> Data Science</p>
+            <p class="text-sm text-textSecondary"><span class="font-medium text-textPrimary">GPA:</span> 3.57/4.00</p>
+            <p class="text-sm text-textSecondary leading-relaxed"><span class="font-medium text-textPrimary">Academic Achievement:</span> Ranked among the Top 3 by GPA in the Faculty of Artificial Intelligence & Data Management.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Certifications & Achievements -->
+  <section class="py-24 px-6 bg-bgSecondary/30 border-y border-borderLight" id="certifications">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex items-center gap-4 mb-12">
+        <h2 class="text-3xl font-bold">Certifications & Achievements</h2>
+        <div class="h-px bg-borderLight flex-1"></div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Formal Certifications / Programs -->
+        <div>
+          <h3 class="text-xl font-semibold mb-6 flex items-center gap-2 text-textPrimary"><i data-lucide="award" class="text-accent"></i> Certifications & Programs</h3>
+          <ul class="space-y-4">
+            <li class="flex gap-4">
+              <div class="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0"></div>
+              <div>
+                <p class="font-medium">Elements of AI for Business</p>
+                <p class="text-sm text-textSecondary">4-week program (MinnaLearn & University of Helsinki, Oct 2025)</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <div class="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0"></div>
+              <div>
+                <p class="font-medium">Basics of working on Khamsat</p>
+                <p class="text-sm text-textSecondary">Certificate of Experience (Khamsat, Oct 2026)</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <div class="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0"></div>
+              <div>
+                <p class="font-medium">English Ramadan Bootcamp</p>
+                <p class="text-sm text-textSecondary">Certificate of Achievement (eduzah)</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <div class="w-1.5 h-1.5 rounded-full bg-borderLight mt-2 flex-shrink-0"></div>
+              <div>
+                <p class="font-medium">McKinsey Forward — Core Skills</p>
+                <p class="text-sm text-textSecondary">10-week program (October–December 2025)</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <div class="w-1.5 h-1.5 rounded-full bg-borderLight mt-2 flex-shrink-0"></div>
+              <div>
+                <p class="font-medium">DEPI — AI & Data Science Track</p>
+                <p class="text-sm text-textSecondary">Participation status to be verified</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <div class="w-1.5 h-1.5 rounded-full bg-borderLight mt-2 flex-shrink-0"></div>
+              <div>
+                <p class="font-medium">Oracle AI Course</p>
+                <p class="text-sm text-textSecondary">Status to be confirmed</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Competitions & Volunteering -->
+        <div>
+          <h3 class="text-xl font-semibold mb-6 flex items-center gap-2 text-textPrimary"><i data-lucide="trophy" class="text-accent"></i> Competitions & Activities</h3>
+          <ul class="space-y-4">
+            <li class="flex gap-4">
+              <div class="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0"></div>
+              <div>
+                <p class="font-medium">NASA International Space Apps Challenge</p>
+                <p class="text-sm text-textSecondary">Galactic Team Member (Oct 2025)</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <div class="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0"></div>
+              <div>
+                <p class="font-medium">ICPC Badr Assiut Community Championship</p>
+                <p class="text-sm text-textSecondary">Participant, Team 'Wrong Answer' (2026)</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <div class="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0"></div>
+              <div>
+                <p class="font-medium">Geeks League Competition (IEEE BUA)</p>
+                <p class="text-sm text-textSecondary">Certificate of Appreciation (Impactful Presence)</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <div class="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0"></div>
+              <div>
+                <p class="font-medium">Hult Prize Foundation (BUA)</p>
+                <p class="text-sm text-textSecondary">Organizing Committee Member (Mar 2026)</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <div class="w-1.5 h-1.5 rounded-full bg-borderLight mt-2 flex-shrink-0"></div>
+              <div>
+                <p class="font-medium">Rally Society BUA</p>
+                <p class="text-sm text-textSecondary">Recognized as Best Entrepreneur Member (TBC)</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <div class="w-1.5 h-1.5 rounded-full bg-borderLight mt-2 flex-shrink-0"></div>
+              <div>
+                <p class="font-medium">Enactus Rally</p>
+                <p class="text-sm text-textSecondary">Volunteering</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Certificate Gallery -->
+      <div class="mt-20">
+        <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
+          <i data-lucide="image" class="text-accent"></i> Certificate Gallery
+        </h3>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          
+          <div class="group relative aspect-[4/3] rounded-lg overflow-hidden border border-borderLight cursor-pointer bg-bgPrimary shadow-sm hover:shadow-md transition-all" onclick="openImageModal('certificate/minnalearn.jpeg', 'Elements of AI for Business')">
+            <img src="certificate/minnalearn.jpeg" alt="Elements of AI for Business" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-center">
+              <span class="text-white font-medium text-sm">Elements of AI for Business</span>
+            </div>
+          </div>
+          
+          <div class="group relative aspect-[4/3] rounded-lg overflow-hidden border border-borderLight cursor-pointer bg-bgPrimary shadow-sm hover:shadow-md transition-all" onclick="openImageModal('certificate/5msat.png', 'Basics of working on Khamsat')">
+            <img src="certificate/5msat.png" alt="Basics of working on Khamsat" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-center">
+              <span class="text-white font-medium text-sm">Basics of working on Khamsat</span>
+            </div>
+          </div>
+          
+          <div class="group relative aspect-[4/3] rounded-lg overflow-hidden border border-borderLight cursor-pointer bg-bgPrimary shadow-sm hover:shadow-md transition-all" onclick="openImageModal('certificate/eduzah english.jpeg', 'English Ramadan Bootcamp')">
+            <img src="certificate/eduzah english.jpeg" alt="English Ramadan Bootcamp" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-center">
+              <span class="text-white font-medium text-sm">English Ramadan Bootcamp</span>
+            </div>
+          </div>
+          
+          <div class="group relative aspect-[4/3] rounded-lg overflow-hidden border border-borderLight cursor-pointer bg-bgPrimary shadow-sm hover:shadow-md transition-all" onclick="openImageModal('certificate/Hult prize social media certificate.jpeg', 'Hult Prize Foundation')">
+            <img src="certificate/Hult prize social media certificate.jpeg" alt="Hult Prize Foundation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-center">
+              <span class="text-white font-medium text-sm">Hult Prize Foundation</span>
+            </div>
+          </div>
+          
+          <div class="group relative aspect-[4/3] rounded-lg overflow-hidden border border-borderLight cursor-pointer bg-bgPrimary shadow-sm hover:shadow-md transition-all" onclick="openImageModal('certificate/Screenshot 2025-11-26 190947.png', 'NASA Space Apps Challenge')">
+            <img src="certificate/Screenshot 2025-11-26 190947.png" alt="NASA Space Apps Challenge" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-center">
+              <span class="text-white font-medium text-sm">NASA Space Apps Challenge</span>
+            </div>
+          </div>
+          
+          <div class="group relative aspect-[4/3] rounded-lg overflow-hidden border border-borderLight cursor-pointer bg-bgPrimary shadow-sm hover:shadow-md transition-all" onclick="openImageModal('certificate/WhatsApp Image 2025-11-26 at 18.11.33_0bf42ee2.jpg', 'ICPC Certificate')">
+            <img src="certificate/WhatsApp Image 2025-11-26 at 18.11.33_0bf42ee2.jpg" alt="ICPC Certificate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-center">
+              <span class="text-white font-medium text-sm">ICPC Certificate</span>
+            </div>
+          </div>
+          
+          <div class="group relative aspect-[4/3] rounded-lg overflow-hidden border border-borderLight cursor-pointer bg-bgPrimary shadow-sm hover:shadow-md transition-all" onclick="openImageModal('certificate/WhatsApp Image 2026-05-14 at 1.05.12 AM.jpeg', 'IEEE BUA Geeks League')">
+            <img src="certificate/WhatsApp Image 2026-05-14 at 1.05.12 AM.jpeg" alt="IEEE BUA Geeks League" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-center">
+              <span class="text-white font-medium text-sm">IEEE BUA Geeks League</span>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-24 px-6" id="contact">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-6">Let's Connect</h2>
+      <p class="text-lg text-textSecondary mb-10 max-w-xl mx-auto">
+        I am always open to discussing data-driven projects, potential collaborations, or new opportunities. Feel free to reach out.
+      </p>
+      
+      <div class="flex flex-col md:flex-row justify-center gap-6 mb-12">
+        <a href="mailto:kerolesshohdy0142@gmail.com" class="flex items-center justify-center gap-3 px-6 py-4 border border-borderLight rounded-lg hover:border-accent hover:text-accent transition-all group bg-bgSecondary/30">
+          <i data-lucide="mail" class="text-textSecondary group-hover:text-accent transition-colors"></i>
+          <span>kerolesshohdy0142@gmail.com</span>
+        </a>
+        <!-- Phone number is optional and easily removable -->
+        <a href="tel:01014230467" class="flex items-center justify-center gap-3 px-6 py-4 border border-borderLight rounded-lg hover:border-accent hover:text-accent transition-all group bg-bgSecondary/30" id="contact-phone">
+          <i data-lucide="phone" class="text-textSecondary group-hover:text-accent transition-colors"></i>
+          <span>01014230467</span>
+        </a>
+      </div>
+
+      <div class="flex justify-center gap-8">
+        <a href="https://github.com/keroshohdy" target="_blank" class="flex flex-col items-center gap-2 text-textSecondary hover:text-white transition-colors">
+          <div class="w-12 h-12 rounded-full border border-borderLight flex items-center justify-center hover:border-accent bg-bgSecondary/50">
+            <i data-lucide="github"></i>
+          </div>
+          <span class="text-sm">GitHub</span>
+        </a>
+        <a href="https://www.linkedin.com/in/keroles-shohdy" target="_blank" class="flex flex-col items-center gap-2 text-textSecondary hover:text-white transition-colors">
+          <div class="w-12 h-12 rounded-full border border-borderLight flex items-center justify-center hover:border-accent bg-bgSecondary/50">
+            <i data-lucide="linkedin"></i>
+          </div>
+          <span class="text-sm">LinkedIn</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 text-center border-t border-borderLight text-textSecondary text-sm">
+    <p>&copy; 2026 Keroles Shohdy. All rights reserved.</p>
+  </footer>
+
+  <!-- Modals -->
+  <div id="modal-overlay" class="fixed inset-0 bg-black/80 z-[60] hidden backdrop-blur-sm transition-opacity opacity-0" onclick="closeModal()"></div>
+  
+  <!-- Content for Modals in script.js to inject dynamically, or hardcode them below for simplicity -->
+  <div id="modals-container"></div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="script.js"></script>
+</body>
+</html>
